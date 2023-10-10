@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styles.css">
+    
+</head>
+<body>
+  <div class="text-center">
+    <h1>Weather App</h1>
+    <form method="POST">
+        <label for="location">Enter a location:</label>
+        <input type="text" name="location" id="location" required>
+        <button type="submit">Get Weather</button>
+    </form>    
+  </div>
+  
+  
+  
+  {% if location %}
+  
+ 
+
+  <div id="page-wrapper">
+  
+
+      <section id="header">
+        <div class="container">
+            <h1 id="logo">My Weather App</h1>
+            <p>The Weather in {{ location }} is</p>
+          <br>
+      </section>
+
+          
+  <div class="card-group" id="weather_app_card">
+    <div class="card">
+      <div class="background">
+      <div class="text-center">
+        <img src="static/images/clouds-and-sun.png" class=" img-thumbnail thumbnail" alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text">Weather </h5>
+        <h3 class="card-text text">{{ Weather }}</h3>
+        
+      </div>
+    </div>
+    </div>
+    
+    <div class="card">
+      <div class="background">
+        <div class="text-center">
+          <img src="static/images/sun.png" class="img-thumbnail thumbnail" alt="...">
+        </div>
+      <div class="card-body">
+        <h5 class="card-title text">Temp</h5>
+        <h3 class="card-text text">{{ Temp }}°F</h3>
+        
+      </div>
+    </div>
+    </div>
+            
+    <div class="card">
+      <div class="background">
+        <div class="text-center">
+          <img src="static/images/cloudy.png" class="img-thumbnail thumbnail" alt="...">
+        </div>
+      <div class="card-body">
+        <h5 class="card-title text">Feels_like</h5>
+        <h3 class="card-text text">{{ feels_like }}°F</h3>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <br>
+  <br>
+
+
+          
+  <div class="card-group">
+    <div class="card">
+      <div class="background">
+      <div class="text-center">
+        <img src="static/images/humidity.png" class=" img-thumbnail thumbnail" alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text">Humidity</h5>
+        <h3 class="card-text text">{{ humidity }}%</h3>
+        
+      </div>
+    </div>
+    </div>
+    
+    <div class="card">
+      <div class="background">
+        <div class="text-center">
+          <img src="static/images/view.png" class="img-thumbnail thumbnail" alt="...">
+        </div>
+      <div class="card-body">
+        <h5 class="card-title text">Visibility</h5>
+        <h3 class="card-text text">{{ visibility }}</h3>
+        
+      </div>
+    </div>
+    </div>
+            
+    <div class="card">
+      <div class="background">
+        <div class="text-center">
+          <img src="static/images/wind.png" class="img-thumbnail thumbnail" alt="...">
+        </div>
+      <div class="card-body">
+        <h5 class="card-title text">Wind speed</h5>
+        <h3 class="card-text text">{{ wind_speed }}Km/h</h3>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {% else %}
+
+  <h3 class="text-center py-5 text-danger">
+    {{error_message}}
+  </h3>
+
+  {% endif %}
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Muneeb</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <h1>The Weather in {{city}} is : {{Weather}}</h1>
+        <h1>The Temperature in {{city}} is : {{Temp}}</h1>
+        <h1>The feels_like temperature in {{city}} is : {{feels_like}}</h1>
+        <h1>The minimum temperature is {{city}} is : {{Min_temp}}</h1>
+        <h1>The maximum temperature is {{city}} is : {{max_temp}}</h1>
+        <h1>The humidity in {{city}} is : {{humidity}}</h1>
+        <h1>The visibility in {{city}} is : {{visibility}}</h1>
+        <h1>The wind_speed in {{city}} is : {{wind_speed}}</h1>
+        <h1>The sunrise in {{city}} is : {{sunrise}}</h1>
+        <h1>The sunset in {{city}} is : {{sunset}}</h1>
+        <h1>The latitude_coordinate in {{city}} is : {{lat}}</h1>
+        <h1>The longitude_coordinate in {{city}} is : {{lon}}</h1>
+        <h1>The pressure in {{city}} is : {{pressure}}</h1> -->
+
+        <!-- <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+              <h5 class="card-title">Primary card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div> -->
+
+
+
+        <!-- <body class="homepage is-preload"> -->
